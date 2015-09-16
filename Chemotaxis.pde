@@ -1,4 +1,4 @@
-//Bacteria bob; 
+Bacteria bob; 
 Bacteria [] colony;//declare bacteria variables here   
  void setup()   
  {     
@@ -7,9 +7,10 @@ Bacteria [] colony;//declare bacteria variables here
    frameRate(15);
    //initialize bacteria variables here   
    colony = new Bacteria [50];
+   bob= new Bacteria();
    for(int i=0; i<colony.length; i++)
    {
-   	colony[i] = new Bacteria();
+   	  colony[i] = new Bacteria();
    }
  }   
  void draw()   
@@ -17,10 +18,10 @@ Bacteria [] colony;//declare bacteria variables here
    background(216, 191, 216);
    for(int i=0; i<colony.length; i++)
    {
-   	colony[i].move();
-   	colony[i].show();
+   		colony[i].move();
+   		colony[i].show();
    }
-  	//bob.show//bob.move
+  	bob.mouseIsPressed();//bob.show//bob.move
    //move and show the bacteria   
  }  
  
@@ -46,18 +47,34 @@ class Bacteria
      if (direction==0)
      {
      	myX= myX+5;
+     	if(myX>=490)
+     	{
+     		direction=(int)(Math.random()*4);
+     	}
      }
      else if (direction ==1)
      {
      	myX= myX-5;
+     	if(myX<=10)
+     	{
+     		direction=(int)(Math.random()*4);
+     	}
      }
      else if (direction ==2)
      {
      	myY= myY+5;
+     	if (myY>=490)
+     	{
+     		direction=(int)(Math.random()*4);
+     	}
      }
      else if (direction ==3)
      {
      	myY=myY-5;
+     	if(myY<=10)
+     	{
+     		direction=(int)(Math.random()*4);
+     	}
      }
    }
 
@@ -65,6 +82,13 @@ class Bacteria
    {
      noStroke();
      fill(myColorR, myColorG, myColorB);
-     ellipse(myX, myY, 20, 20);
+     ellipse(myX, myY, 30, 30);
+   }
+   void mouseIsPressed()
+   {
+   	fill(238,232,170);
+   	rect(mouseX, mouseY, 15, 15);
    }
  }    
+ //if mouseirpressed draw
+ // follow food or mouse else do this
