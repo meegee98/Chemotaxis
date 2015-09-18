@@ -40,7 +40,6 @@ class Bacteria
      myColorG= (int)(Math.random()*255);
      myColorB= (int)(Math.random()*255);
      faces= (int)(Math.random()*10);
-
    }   
    void move()
    {
@@ -102,9 +101,24 @@ class Bacteria
      noStroke();
      fill(myColorR, myColorG, myColorB);
      ellipse(myX, myY, 40, 30);
-     triangle(myX-30, myY-15, myX, myY, myX-30, myY+15);
+     if(mouseX>myX)
+     {
+      triangle(myX-30, myY-15, myX, myY, myX-30, myY+15);
+      fill(0);
+      ellipse(myX+10, myY, 5, 5);
+     }
+     else if(mouseX<myX) 
+     {
+       triangle(myX+30, myY-15, myX, myY, myX+30, myY+15);
+       fill(0);
+       ellipse(myX-10, myY, 5, 5);
+     }
+
+     
 /*ellipse(50, 50, 40, 30);
-triangle(20, 35, 50, 50, 20, 65);*/
+triangle(20, 35, 50, 50, 20, 65);
+triangle(80, 35, 50, 50, 80, 65);
+ellipse(60, 48, 5, 5); */
      /*if(faces==0)
      {
      	ellipse(myX+, myY, 5, 5,)
@@ -114,7 +128,11 @@ triangle(20, 35, 50, 50, 20, 65);*/
     void mousePressed()
    {
    	fill(238,232,170);
-   	rect(mouseX, mouseY, 15, 15);
+   	ellipse(mouseX, mouseY, 5, 5);
+    ellipse(mouseX+10, mouseY-5, 5, 5);
+    ellipse(mouseX, mouseY-10, 5, 5);
+    ellipse(mouseX+10, mouseY+1, 5, 5);
+
    }    
  //if mouseirpressed draw
  // follow food or mouse else do this
