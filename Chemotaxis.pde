@@ -1,5 +1,6 @@
 Bacteria bob; 
-Bacteria [] colony;//declare bacteria variables here   
+Bacteria [] colony;
+int foodX= (int)(Math.random()*10);//declare bacteria variables here   
  void setup()   
  {     
    size(500, 500);
@@ -15,7 +16,10 @@ Bacteria [] colony;//declare bacteria variables here
  }   
  void draw()   
  {    
-   background(49, 79, 79);
+   background(0, 0, 128);
+   fill(139, 137, 137);
+   ellipse(150, 500, 400, 100);
+   ellipse(400, 500, 400, 100);
    for(int i=0; i<colony.length; i++)
    {
    		colony[i].move();
@@ -53,7 +57,7 @@ class Bacteria
     }
     if (myY<mouseY)
     {
-    	myY=myY+(int)(Math.random()*5)-2;
+    	myY=myY+(int)(Math.random()*5)-1;
     }
     else 
     {
@@ -125,14 +129,18 @@ ellipse(60, 48, 5, 5); */
      }*/
    }
  }
-    void mousePressed()
+  void mousePressed()
    {
    	fill(238,232,170);
-   	ellipse(mouseX, mouseY, 5, 5);
-    ellipse(mouseX+10, mouseY-5, 5, 5);
-    ellipse(mouseX, mouseY-10, 5, 5);
-    ellipse(mouseX+10, mouseY+1, 5, 5);
-
+   	ellipse(mouseX-5, mouseY, 5, 5);
+    ellipse(mouseX+17, mouseY-5, 5, 5);
+    ellipse(mouseX, mouseY-12, 5, 5);
+    ellipse(mouseX+10, mouseY-12, 5, 5);
+    ellipse(mouseX+17, mouseY+1, 5, 5);
+    ellipse(mouseX+5, mouseY+1, 5, 5);
+    ellipse(mouseX+7, mouseY+15, 5, 5);
+    ellipse(mouseX-2, mouseY+12, 5, 5);
+    ellipse(mouseX+15, mouseY+12, 5, 5);
    }    
  //if mouseirpressed draw
  // follow food or mouse else do this
